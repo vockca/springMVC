@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: "2"
+      author: Finqa
+      changes:
+        - createTable:
+            tableName: organizations
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: workers
+                  type: text
+                  constraints:
+                    nullable: true
+              - column:
+                  name: sphere
+                  type: text
