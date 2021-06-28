@@ -6,7 +6,8 @@ import vladislav.dashkovskiy.testTask.entities.Organization;
 
 
 @Repository
-public interface CustomizedOrganizationCrudRepository extends CrudRepository<Organization, Long> {
+public interface OrganizationRepository extends CrudRepository<Organization, Long> {
     Organization findOrganizationByName(String organizationName);
+
     void deleteOrganizationByName(String organizationName);
 }

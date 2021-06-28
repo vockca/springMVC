@@ -32,21 +32,13 @@ public class Worker { // annotation pattern
 
     public String skills;
 
-    public boolean isBusy;
+    public boolean busy;
 
     @ManyToOne
     @JoinColumn(name = "organization_id")
     public Organization organization;
 
     public String project;
-
-    public void setIsBusy(boolean busy) {
-        isBusy = busy;
-    }
-
-    public boolean getIsBusy() {
-        return isBusy;
-    }
 
     @Override
     public String toString() {

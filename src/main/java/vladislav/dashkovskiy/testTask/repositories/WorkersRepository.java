@@ -10,10 +10,10 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public interface CustomizedWorkersCrudRepository extends CrudRepository<Worker, Long> {
-    @Query("SELECT w FROM Worker w WHERE w.age > 25 and w.organization.id = ?1")
+public interface WorkersRepository extends CrudRepository<Worker, Long> {
+//    @Query("SELECT w FROM Worker w WHERE w.age > 25 and w.organization.name = ?1")
     @Transactional
-    List<Worker> findFreeWorkersByOrganizationIdAbove25(Long organizationId);
+    List<Worker> findWorkersByAgeGreaterThanAndOrganization_Id(int workerAge, Long organizationId);
 
     @Query("UPDATE Worker w SET w.name = ?1 WHERE w.id = ?2")
     @Modifying

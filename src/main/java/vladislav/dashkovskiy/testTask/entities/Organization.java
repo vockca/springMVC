@@ -15,6 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
+import static javax.persistence.CascadeType.REMOVE;
+import static javax.persistence.GenerationType.IDENTITY;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,12 +28,12 @@ import java.util.List;
 @Table(name = "organizations")
 public class Organization {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     public Long id;
 
     public String name;
 
-    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "organization", cascade = REMOVE)
     public List<Worker> workers;
 
     public String sphere;
